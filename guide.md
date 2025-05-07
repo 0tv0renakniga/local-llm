@@ -53,10 +53,11 @@ Before we begin, let's ensure your system is ready.
             ```bash
             curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo gpg --dearmor -o /usr/share/keyrings/docker-archive-keyring.gpg
             ```
-        4.  **Set up the Docker stable repository:**
+        4.  **Set up the Docker stable repository (Corrected for Linux Mint):**
             ```bash
-            echo "deb [arch=$(dpkg --print-architecture) signed-by=/usr/share/keyrings/docker-archive-keyring.gpg] https://download.docker.com/linux/ubuntu $(. /etc/os-release && echo "$VERSION_CODENAME") stable" | sudo tee /etc/apt/sources.list.d/docker.list > /dev/null
+            echo "deb [arch=$(dpkg --print-architecture) signed-by=/usr/share/keyrings/docker-archive-keyring.gpg] https://download.docker.com/linux/ubuntu $(. /etc/os-release && echo "$UBUNTU_CODENAME") stable" | sudo tee /etc/apt/sources.list.d/docker.list > /dev/null
             ```
+            *Note: This command uses `$UBUNTU_CODENAME` from `/etc/os-release` to ensure compatibility with Docker's Ubuntu-based repositories, as Linux Mint uses its own codenames but is based on an Ubuntu release.*
         5.  **Install Docker Engine:**
             ```bash
             sudo apt update
@@ -329,4 +330,6 @@ You've successfully set up your local AI lab! Here's what you can do next:
 
     This process gives you access to a much wider range of models. Remember to always check the model's license and intended use on Hugging Face.
 
+## Conclusion
 
+Congratulations! You've taken a significant step into the world of local AI. By installing Ollama and OpenWebUI on your Linux Mint system, you now have a private, powerful, and versatile AI assistant at your fingertips. Enjoy experimenting, learning, and leveraging the capabilities of local LLMs, whether from the official library or custom ones you import yourself! from the official library or custom ones you import yourself!
