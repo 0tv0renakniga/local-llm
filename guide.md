@@ -70,7 +70,7 @@ Before we begin, let's ensure your system is ready.
             You should see a "Hello from Docker!" message.
         7.  **Add your user to the `docker` group (to run Docker commands without `sudo`):**
             ```bash
-            sudo usermod -aG docker ${USER}
+            sudo usermod -aG docker $(whoami)
             ```
             **Important:** You'll need to log out and log back in, or open a new terminal session after closing all current ones, for this change to take effect. You can also run `newgrp docker` in your current terminal to apply the new group membership immediately for that terminal session.
 
